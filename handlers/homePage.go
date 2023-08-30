@@ -1,10 +1,17 @@
 package handlers
 
 import (
-	"fmt"
+	"html/template"
+	"log"
 	"net/http"
+
+	"github.com/Mriyaaa/RecipeKeeper/data"
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello!")
+	tmpl, err := template.ParseFiles("frontend/homePage.html")
+	if err != nil {
+		log.Fatal(err, "ERROR: problem with file path")
+	}
+	tmpl.Execute(w, data.AllRecipes)
 }

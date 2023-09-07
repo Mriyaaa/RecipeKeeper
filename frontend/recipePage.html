@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.RecipeName}}</title>
+    <link rel="stylesheet" href="/frontend/css/recipeStyle.css">
+</head>
+
+<body>
+    <header class="title">
+        <h1>{{.RecipeName}}</h1>
+    </header>
+    <main>
+        <section class="details">
+            <section class="prep">
+                <h3 class="PrepT">Prep Time</h3>
+                <p class="PrepB">{{.PrepTime}}</p>
+            </section>
+            <section class="cook">
+                <h3 class="CookT">Cook Time</h3>
+                <p class="CookB">{{.CookTime}}</p>
+            </section>
+            <section class="serve">
+                <h3 class="ServingT">Serving Size</h3>
+                <p class="ServingB">{{.ServingSize}}</p>
+            </section>
+        </section>
+        <section class="Ingredients">
+            <header>
+                <h2 class="IngT">Ingredients</h2>
+            </header>
+            <table class="IngB">
+                {{range $IngredientName, $IngredientAmount := .Ingredients}}
+                <tr>
+                    <td><strong>{{$IngredientName}}</strong></td>
+                    <td>{{$IngredientAmount}}</td>
+                </tr>
+                {{end}}
+            </table>
+        </section>
+        <section class="Instructions">
+            <header>
+                <h2 class="InsT">Instructions</h2>
+            </header>
+            <ol class="InsL">
+                {{range .Instructions}}
+                <li>{{.}}</li>
+                {{end}}
+            </ol>
+        </section>
+        <section class="Extras">
+            <div class="Source"><strong>{{.Source}}</strong></div>
+            <br>
+            <div class="Tags">
+                |{{range .Tags}} {{.}} | {{end}}
+            </div>
+        </section>
+    </main>
+    <footer class="return">
+        <a href="/">Return</a>
+    </footer>
+</body>

@@ -1,0 +1,189 @@
+/* Initial Set Up + Defaults */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+:root {
+    font-size: 16px;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+p {
+    font-size: 1rem;
+}
+small {
+    font-size: 0.75rem;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+/* Page Layout */
+body {
+    display: grid;
+    grid-template-areas: 
+    "title"
+    "recipes"
+    "footer";
+    grid-template-rows: 100px 1fr 20px;
+}
+
+/* Title */
+.title{
+    grid-area: title;
+    width: 100%;
+    background-color: lightsteelblue;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    height: 100%;
+}
+
+/* Recipes Layout */
+main{
+    padding: 20px;
+    grid-area: recipes;
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    background: url("MyPic.jpeg") no-repeat center center fixed;
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover; 
+}
+
+/* Layout of each recipe card */
+.card {
+    all: unset;
+    border-radius: 15%;
+    padding: 10px;
+    width: 300px;
+    background-color: rgba(240, 248, 255,0.5);
+    height: 250px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: 
+    "recipe recipe recipe"
+    "prep cook serve"
+    "pTime cTime sSize"
+    "tags tags tags";
+}
+
+.card:hover {
+    background-color: aliceblue;
+}
+
+.recipe {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: recipe;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    border-bottom: solid 1px lightsteelblue;
+}
+
+.prep {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: prep;
+    display: flex;
+  justify-content: center;
+  align-items: flex-end;
+    border-right: solid 1px lightsteelblue;
+}
+
+.cook {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: cook;
+    display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.serve {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: serve;
+    display: flex;
+  justify-content: center;
+  align-items: flex-end;
+    border-left: solid 1px lightsteelblue;
+}
+
+.pTime {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: pTime;
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+    border-right: solid 1px lightsteelblue;
+}
+
+.cTime {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: cTime;
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sSize {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: sSize;
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+    border-left: solid 1px lightsteelblue;
+}
+
+.tags {
+    height: 100%;
+    width:100%;
+    padding: 5px;
+    grid-area: tags;
+    display: flex;
+  justify-content: center;
+  align-items: flex-end;
+    border-top: solid 1px lightsteelblue;
+}
+
+.copyright {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+    background-color: lightsteelblue;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
